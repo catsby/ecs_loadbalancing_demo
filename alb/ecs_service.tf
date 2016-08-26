@@ -225,8 +225,11 @@ resource "aws_security_group" "main_sg" {
     self        = true
   }
 
+  # The Docker Agent in the ECS Optimized AMI will dynamically assign a port
+  # from 32768 - 65535, the 'ephemeral port range'
+  # see http://docs.aws.amazon.com/fr_fr/AmazonECS/latest/developerguide/task_definition_parameters.html
   ingress {
-    from_port = 0
+    from_port = 32768
     to_port   = 65535
     protocol  = "tcp"
     self      = true
