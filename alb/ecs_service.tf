@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "main" {
-  name = "terraformecstest11"
+  name = "albecstest"
 }
 
 resource "aws_ecs_task_definition" "outyet" {
@@ -101,8 +101,8 @@ resource "aws_alb" "ecs_alb" {
 
 resource "aws_alb_target_group" "ecs_tg" {
   name     = "alb-ecs-thing"
-  port     = 80
   protocol = "HTTP"
+  port     = 8080
   vpc_id   = "${aws_vpc.default.id}"
 }
 
