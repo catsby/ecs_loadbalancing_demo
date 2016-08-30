@@ -66,6 +66,10 @@ resource "aws_iam_role_policy" "ecs_service" {
 EOF
 }
 
+provider "aws" {
+  region = "us-west-2"
+}
+
 resource "aws_ecs_service" "outyet" {
   name            = "outyet"
   cluster         = "${aws_ecs_cluster.main.id}"
@@ -150,10 +154,6 @@ resource "aws_instance" "ecs" {
 ######
 #BASE
 ######
-provider "aws" {
-  region = "us-west-2"
-}
-
 resource "aws_vpc" "default" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
