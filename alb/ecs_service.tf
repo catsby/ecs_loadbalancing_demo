@@ -1,3 +1,11 @@
+provider "aws" {
+  region = "us-west-2"
+
+  #access_key = ""
+
+  #secret_key = ""
+}
+
 resource "aws_ecs_cluster" "main" {
   name = "albecstest"
 }
@@ -64,10 +72,6 @@ resource "aws_iam_role_policy" "ecs_service" {
   ]
 }
 EOF
-}
-
-provider "aws" {
-  region = "us-west-2"
 }
 
 resource "aws_ecs_service" "outyet" {
