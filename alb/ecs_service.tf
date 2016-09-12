@@ -259,15 +259,7 @@ resource "aws_key_pair" "ssh_thing" {
   public_key = "${file("~/.ssh/id_rsa2.pub")}"
 }
 
-output "ip" {
-  value = ["${aws_instance.ecs.*.public_dns}"]
-}
-
 resource "aws_iam_instance_profile" "test_profile" {
   name  = "test_profile"
   roles = ["${aws_iam_role.ecs_service.name}"]
-}
-
-output "rendered" {
-  value = "${data.template_file.ecs-setup.rendered}"
 }
