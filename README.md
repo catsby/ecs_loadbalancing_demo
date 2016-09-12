@@ -5,10 +5,13 @@ Container Service][ecs]; one for use with [Classic Elastic Load Balancer][elb], 
 one using the newer [Application Load Balancer][alb]. Each example is in it's own
 folder, `elb_classic` and `alb`, respectively.
 
-###NOTE
+###Disclaimer / Warnings
 
-Using either of these will spin up *real* infrastructure on Amazon. You are
+- Using either of these will spin up *real* infrastructure on Amazon. You are
 responsible for any charges that occur. 
+- These examples are meant to demonstrate connecting Elastic Load Balancers to
+  containers running on ECS, and **is not** in anyway meant to reflect a
+  "production use case". I assume no responsibility, and you use at your own risk.
 
 ## Steps:
 
@@ -23,7 +26,7 @@ responsible for any charges that occur.
 1. for the new ALB, you'll see all 3 tasks running, with one ECS Instance
    running two counts of the task
 
-The DNS entry for the respecitve load balaner will be output and you can hit
+The DNS entry for the respective load balancer will be output and you can hit
 that directly. To hit an instance specifically, you'll need the Instance IP and
 to know the port. For the classic example that's `8080`. For the ALB example,
 you'll need to look up which dynamic port it was given in the AWS console. 
@@ -40,3 +43,5 @@ and `aws_alb_target_group` resources.
 [ecs]: https://aws.amazon.com/ecs/?hp=tile
 [elb]: http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html
 [alb]: http://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+
+
