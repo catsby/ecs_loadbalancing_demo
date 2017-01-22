@@ -23,8 +23,7 @@ resource "aws_ecs_task_definition" "outyet" {
     "name": "outyet",
     "portMappings": [
       {
-        "containerPort": 8080,
-        "hostPort": 0
+        "containerPort": 8080
       }
     ]
   }
